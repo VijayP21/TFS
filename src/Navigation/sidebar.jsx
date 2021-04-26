@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import { Link } from "@reach/router";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -18,7 +18,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import menuItems from "../Navigation/menu_items";
+import menuItems from "./menu_items";
 
 const drawerWidth = 240;
 
@@ -151,19 +151,14 @@ export default function Sidebar() {
 
         <List className="sidebar-navigation-block">
           {menuItems.map((item, index) => (
-            <Link
-              to={basePath + item.menuPath}
-              style={{ color: "black" }}
-              key={index}
-            >
+            <Link to={item.menuPath} style={{ color: "black" }} key={index}>
               <ListItem
-                onClick={()=>{
+                onClick={() => {
                   setCurrentPage(item.pageTitle);
                 }}
               >
                 <ListItemIcon>{item.menuIcon}</ListItemIcon>
                 <ListItemText>{item.menuName}</ListItemText>
-
               </ListItem>
             </Link>
           ))}
